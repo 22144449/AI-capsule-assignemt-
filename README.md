@@ -5,11 +5,8 @@ React frontend and a Node/Express backend, protected by GitHub OAuth +
 an application JWT, with a SQLite database. Deployed as a single service
 so the frontend and API share one public URL.
 
-> **Deployed URL:** `https://REPLACE-WITH-YOUR-RENDER-URL.onrender.com`
+> **Deployed URL:** `https://ai-capsule-assignemt.onrender.com`
 > **Cloud platform used:** Render (Web Service, free tier)
->
-> *(Fill this in with your real deployed URL before submitting. If you
-> deployed to Azure App Service instead, put that URL here and say so.)*
 
 ---
 
@@ -167,21 +164,17 @@ Run against the deployed `GET /api/capsules` endpoint:
 
 ```bash
 # Test 1 - no authentication
-curl -i https://REPLACE-WITH-YOUR-RENDER-URL.onrender.com/api/capsules
+curl -i https://ai-capsule-assignemt.onrender.com/api/capsules
 # Required: 401 Unauthorized
 
 # Test 2 - fake / invalid JWT
-curl -i -H "Cookie: token=fake-token-123" https://REPLACE-WITH-YOUR-RENDER-URL.onrender.com/api/capsules
+curl -i -H "Cookie: token=fake-token-123" https://ai-capsule-assignemt.onrender.com/api/capsules
 # Required: 401 Unauthorized
 ```
-
-**Results obtained (local test run during development, both matched the
-required behaviour — replace with your own deployed-URL output before
-submitting):**
-
+**Results obtained (tested against the live deployed URL):**
 ```
-Test 1 -> HTTP/1.1 401 Unauthorized   {"error":"Unauthorized: no token provided"}
-Test 2 -> HTTP/1.1 401 Unauthorized   {"error":"Unauthorized: invalid or expired token"}
+Test 1 -> HTTP/1.1 401 Unauthorized {"error":"Unauthorized: no token provided"}
+Test 2 -> HTTP/1.1 401 Unauthorized {"error":"Unauthorized: invalid or expired token"}
 ```
 
 Full CRUD was also verified locally with a signed test JWT standing in
